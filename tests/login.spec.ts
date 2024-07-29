@@ -11,12 +11,12 @@ test.beforeEach(async ({ page }) => {
   expect(currentUrl).toContain("auth");
 });
 
-test("Login suscefull", async ({ page }) => {
+test("Login suscefull and Add new vehicle", async ({ page }) => {
   //import custom Class
   const dataLogin = new Login(page);
   await dataLogin.loginSuscefull();
-  const dataVehicle = new AddVehicle(page);
   await page.locator("#onetrust-accept-btn-handler").click();
+  const dataVehicle = new AddVehicle(page);
   //assertion login suscefull
   const urlSuscefullLogin = page.url();
   expect(urlSuscefullLogin).toContain("parking_pass");
